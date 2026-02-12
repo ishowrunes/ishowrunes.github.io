@@ -58,6 +58,7 @@ class RuneColorScheme extends ColorScheme {
     required this.success,
     required this.warning,
     required this.info,
+    required this.offWhite,
   });
 
   final RuneColor primarySwatch;
@@ -69,4 +70,5 @@ class RuneColorScheme extends ColorScheme {
   final ExtendedColor success;
   final ExtendedColor warning;
   final ExtendedColor info;
+  final ExtendedColor offWhite;
 }

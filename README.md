@@ -2,6 +2,8 @@
 
 #151312
 
+1> Home
+
 ==================================================
 HERO
 ==================================================
@@ -14,6 +16,7 @@ I’m Ishwor Shrestha, a Senior / Principal Mobile Engineer with 10+ years of ex
 
 I’m open to mobile app projects, contract engagements, and full-time opportunities.
 
+2> About
 
 ==================================================
 ABOUT ME
@@ -31,6 +34,29 @@ My work spans the full lifecycle of mobile apps:
 
 I value thoughtful engineering over shortcuts and believe great mobile apps come from strong fundamentals, practical trade-offs, and clear communication.
 
+or
+
+I’m Ishwor Shrestha, a Senior / Principal Mobile Engineer with over 10 years of experience building and leading mobile applications used at scale.
+
+I design, build, and evolve high-quality mobile systems — from early concepts to production and long-term growth. My focus is on creating reliable, maintainable, and well-structured applications that support real users and real business needs.
+
+Over the last decade, I’ve worked across startups and high-growth companies, contributing not just code but technical direction, architectural thinking, and team leadership. I’ve been closely involved in decisions around app structure, performance, release processes, and developer workflows — always with an eye on long-term maintainability.
+
+I value thoughtful engineering over shortcuts and believe great mobile apps come from strong fundamentals, practical trade-offs, and clear communication.
+
+
+==================================================
+HOW I WORK
+==================================================
+
+- Clear communication and expectations
+- Practical, maintainable solutions
+- Strong focus on production readiness
+- Respect for existing systems and teams
+- Long-term thinking over quick wins
+
+
+3> Services
 
 ==================================================
 WHAT I CAN HELP WITH
@@ -55,6 +81,7 @@ Architecture reviews, code reviews, best practices, and mentoring engineers.
 
 This applies equally to early-stage ideas, growing products, and established applications.
 
+4> Projects
 
 ==================================================
 PROJECTS
@@ -144,26 +171,6 @@ Leadership
 
 
 ==================================================
-EDUCATION
-==================================================
-
-BSc (Hons) Computing  
-London Metropolitan University  
-Second Upper Class
-
-
-==================================================
-HOW I WORK
-==================================================
-
-- Clear communication and expectations
-- Practical, maintainable solutions
-- Strong focus on production readiness
-- Respect for existing systems and teams
-- Long-term thinking over quick wins
-
-
-==================================================
 CALL TO ACTION
 ==================================================
 
@@ -177,3 +184,18 @@ I’m open to:
 - Full-time opportunities
 
 Get in touch to discuss how I can help.
+
+> Home 
+Hero 
+
+> About
+About Me + How I Work
+
+> Expertise
+What I Can Help With + Skills
+
+> Projects
+All projects
+
+> Contact
+CTA

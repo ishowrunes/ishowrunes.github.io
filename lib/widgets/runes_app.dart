@@ -6,6 +6,7 @@ import 'package:ishowrunes/resources/strings.dart';
 import 'package:ishowrunes/resources/theme/rune_color_scheme.dart';
 import 'package:ishowrunes/resources/theme/themes.dart';
 import 'package:ishowrunes/theme_switcher/theme_switcher_view_model.dart';
+import 'package:ishowrunes/util/theme_util.dart';
 import 'package:ishowrunes/widgets/color_scheme_provider.dart';
 import 'package:konsumer_core/konsumer_core.dart';
 
@@ -46,8 +47,7 @@ class RunesApp extends StatelessWidget {
   }
 
   (ThemeData, RuneColorScheme) _platformThemeData(BuildContext context, RuneTheme theme) {
-    final isDarkMode = MediaQuery.platformBrightnessOf(context) == Brightness.dark;
-    return isDarkMode
+    return context.isPlatformDarkMode
         ? (
             theme.dark,
             theme.darkColorScheme,

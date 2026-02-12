@@ -15,11 +15,16 @@ dependencies:
       url: https://github.com/Order-of-Runes/gen_annotation.git
       ref: 0.0.2
   google_fonts: ^8.0.1
+  img:
+    git:
+      url: https://github.com/TheMakersPrime/img.git
+      ref: main
   konsumer_core:
     git:
       url: https://github.com/TheMakersPrime/konsumer_core.git
       ref: main
   shared_preferences: ^2.5.4
+  url_launcher: ^6.3.2
 
 dev_dependencies:
   flutter_test:
@@ -32,3 +37,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/github.svg.vec
+    - assets/linkedin.svg.vec
+    - assets/pp.png

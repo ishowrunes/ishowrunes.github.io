@@ -59,7 +59,6 @@ class RuneTheme {
       onTertiaryFixed: Color(0xff00201b),
       tertiaryFixedDim: Color(0xff7ad7c6),
       onTertiaryFixedVariant: Color(0xff005047),
-
       success: ExtendedColor(
         color: Color(0xff009543),
         onColor: Color(0xffffffff),
@@ -77,6 +76,12 @@ class RuneTheme {
         onColor: Color(0xffffffff),
         colorContainer: Color(0xff304ffe),
         onColorContainer: Color(0xffe2e3ff),
+      ),
+      offWhite: ExtendedColor(
+        color: Color(0xfff3f3f3),
+        onColor: Color(0xff1a1a1a),
+        colorContainer: Color(0xfff3f3f3),
+        onColorContainer: Color(0xff1a1a1a),
       ),
       primarySwatch: _primarySwatch,
       secondarySwatch: _secondarySwatch,
@@ -156,6 +161,12 @@ class RuneTheme {
         onColor: Color(0xff304ffe),
         colorContainer: Color(0xff304ffe),
         onColorContainer: Color(0xffe2e3ff),
+      ),
+      offWhite: ExtendedColor(
+        color: Color(0xfff3f3f3),
+        onColor: Color(0xff1a1a1a),
+        colorContainer: Color(0xfff3f3f3),
+        onColorContainer: Color(0xff1a1a1a),
       ),
     );
   }
