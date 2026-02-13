@@ -145,6 +145,8 @@ class AppDimension {
       .extraLarge => _extraLarge,
     };
   }
+
+  Dimension get baseDimens => _compact;
 }
 
 // Multiplier => 1x

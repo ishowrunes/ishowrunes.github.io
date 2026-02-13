@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ishowrunes/portfolio/components/nav_bar.dart';
 import 'package:ishowrunes/portfolio/components/profile_card.dart';
 import 'package:ishowrunes/portfolio/components/theme_switch.dart';
 import 'package:ishowrunes/portfolio/runes_view_model.dart';
@@ -29,6 +30,9 @@ class RunesPage extends StatelessWidget {
             return ListView(
               children: [
                 ThemeSwitch(onThemeChange: themeVM.updateMode),
+                NavBar(
+                  onTap: (destination) {},
+                ),
                 if (state.profile != null) ProfileCard(profile: state.profile!),
               ],
             );

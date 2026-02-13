@@ -23,4 +23,6 @@ class DimensionProvider extends InheritedWidget {
 
 extension DimensionExtension on BuildContext {
   Dimension get dimens => DimensionProvider.of(this).dimens;
+
+  Dimension get baseDimens => DimensionProvider.of(this).baseDimens;
 }
