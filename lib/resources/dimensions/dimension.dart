@@ -22,119 +22,124 @@ class Dimension {
     required this.borderRadius,
     required this.buttonMinWidth,
     required this.buttonHeight,
-    required this.appBarHeight,
+    required this.navBarHeight,
   });
 
-  /// Compact `2` <br> Medium `3`
-  /// <br> Expanded `3` <br> Large `4`
-  /// <br> ExtraLarge `4`
+  /// Compact `2.0` <br> Medium `2.16`
+  /// <br> Expanded `2.33` <br> Large `2.52`
+  /// <br> ExtraLarge `2.72`
   final double tiny;
 
-  /// Compact `4` <br> Medium `5`
-  /// <br> Expanded `6` <br> Large `7`
-  /// <br> ExtraLarge `8`
+  /// Compact `4.0` <br> Medium `4.32`
+  /// <br> Expanded `4.66` <br> Large `5.04`
+  /// <br> ExtraLarge `5.44`
   final double tiny2;
 
-  /// Compact `8` <br> Medium `10`
-  /// <br> Expanded `12` <br> Large `14`
-  /// <br> ExtraLarge `16`
+  /// Compact `8.0` <br> Medium `8.64`
+  /// <br> Expanded `9.33` <br> Large `10.08`
+  /// <br> ExtraLarge `10.88`
   final double small;
 
-  /// Compact `12` <br> Medium `15`
-  /// <br> Expanded `18` <br> Large `21`
-  /// <br> ExtraLarge `24`
+  /// Compact `12.0` <br> Medium `12.96`
+  /// <br> Expanded `13.99` <br> Large `15.12`
+  /// <br> ExtraLarge `16.32`
   final double small2;
 
-  /// Compact `16` <br> Medium `20`
-  /// <br> Expanded `24` <br> Large `28`
-  /// <br> ExtraLarge `32`
+  /// Compact `16.0` <br> Medium `17.28`
+  /// <br> Expanded `18.66` <br> Large `20.16`
+  /// <br> ExtraLarge `21.76`
   final double small3;
 
-  /// Compact `20` <br> Medium `25`
-  /// <br> Expanded `30` <br> Large `35`
-  /// <br> ExtraLarge `40`
+  /// Compact `20.0` <br> Medium `21.6`
+  /// <br> Expanded `23.32` <br> Large `25.2`
+  /// <br> ExtraLarge `27.2`
   final double small4;
 
-  /// Compact `24` <br> Medium `30`
-  /// <br> Expanded `36` <br> Large `42`
-  /// <br> ExtraLarge `48`
+  /// Compact `24.0` <br> Medium `25.92`
+  /// <br> Expanded `27.98` <br> Large `30.24`
+  /// <br> ExtraLarge `32.64`
   final double small5;
 
-  /// Compact `32` <br> Medium `40`
-  /// <br> Expanded `48` <br> Large `56`
-  /// <br> ExtraLarge `64`
+  /// Compact `32.0` <br> Medium `34.56`
+  /// <br> Expanded `37.33` <br> Large `40.32`
+  /// <br> ExtraLarge `43.52`
   final double medium;
 
-  /// Compact `36` <br> Medium `45`
-  /// <br> Expanded `54` <br> Large `63`
-  /// <br> ExtraLarge `72`
+  /// Compact `36.0` <br> Medium `38.88`
+  /// <br> Expanded `41.99` <br> Large `45.12`
+  /// <br> ExtraLarge `48.64`
   final double medium2;
 
-  /// Compact `40` <br> Medium `50`
-  /// <br> Expanded `60` <br> Large `70`
-  /// <br> ExtraLarge `80`
+  /// Compact `40.0` <br> Medium `43.2`
+  /// <br> Expanded `46.66` <br> Large `50.4`
+  /// <br> ExtraLarge `54.4`
   final double medium3;
 
-  /// Compact `44` <br> Medium `55`
-  /// <br> Expanded `66` <br> Large `77`
-  /// <br> ExtraLarge `88`
+  /// Compact `44.0` <br> Medium `47.52`
+  /// <br> Expanded `51.32` <br> Large `55.44`
+  /// <br> ExtraLarge `59.84`
   final double medium4;
 
-  /// Compact `48` <br> Medium `60`
-  /// <br> Expanded `72` <br> Large `84`
-  /// <br> ExtraLarge `96`
+  /// Compact `48.0` <br> Medium `51.84`
+  /// <br> Expanded `55.98` <br> Large `60.48`
+  /// <br> ExtraLarge `65.28`
   final double medium5;
 
-  /// Compact `56` <br> Medium `70`
-  /// <br> Expanded `84` <br> Large `98`
-  /// <br> ExtraLarge `112`
+  /// Compact `56.0` <br> Medium `60.48`
+  /// <br> Expanded `65.31` <br> Large `70.56`
+  /// <br> ExtraLarge `76.16`
   final double large;
 
-  /// Compact `60` <br> Medium `75`
-  /// <br> Expanded `90` <br> Large `105`
-  /// <br> ExtraLarge `120`
+  /// Compact `60.0` <br> Medium `64.8`
+  /// <br> Expanded `69.66` <br> Large `75.12`
+  /// <br> ExtraLarge `81.28`
   final double large2;
 
-  /// Compact `64` <br> Medium `80`
-  /// <br> Expanded `96` <br> Large `112`
-  /// <br> ExtraLarge `128`
+  /// Compact `64.0` <br> Medium `69.12`
+  /// <br> Expanded `74.64` <br> Large `80.64`
+  /// <br> ExtraLarge `87.04`
   final double large3;
 
-  /// Compact `68` <br> Medium `85`
-  /// <br> Expanded `102` <br> Large `119`
-  /// <br> ExtraLarge `136`
+  /// Compact `68.0` <br> Medium `73.44`
+  /// <br> Expanded `79.62` <br> Large `86.16`
+  /// <br> ExtraLarge `92.8`
   final double large4;
 
-  /// Compact `72` <br> Medium `90`
-  /// <br> Expanded `108` <br> Large `126`
-  /// <br> ExtraLarge `144`
+  /// Compact `72.0` <br> Medium `77.76`
+  /// <br> Expanded `84.59` <br> Large `91.68`
+  /// <br> ExtraLarge `98.56`
   final double large5;
 
-  /// Compact `10` <br> Medium `13`
-  /// <br> Expanded `15` <br> Large `18`
-  /// <br> ExtraLarge `20`
+  /// Compact `10.0` <br> Medium `10.8`
+  /// <br> Expanded `11.16` <br> Large `12.0`
+  /// <br> ExtraLarge `12.8`
   final double borderRadius;
 
-  /// Compact `200` <br> Medium `250`
-  /// <br> Expanded `300` <br> Large `350`
-  /// <br> ExtraLarge `400`
+  /// Compact `200.0` <br> Medium `216.0`
+  /// <br> Expanded `223.2` <br> Large `240.0`
+  /// <br> ExtraLarge `256.0`
   final double buttonMinWidth;
 
-  /// Compact `48` <br> Medium `60`
-  /// <br> Expanded `72` <br> Large `84`
-  /// <br> ExtraLarge `96`
+  /// Compact `48.0` <br> Medium `51.84`
+  /// <br> Expanded `53.28` <br> Large `57.6`
+  /// <br> ExtraLarge `61.44`
   final double buttonHeight;
 
-  /// Compact `56` <br> Medium `70`
-  /// <br> Expanded `84` <br> Large `98`
-  /// <br> ExtraLarge `112`
-  final double appBarHeight;
+  /// Compact `58.0` <br> Medium `62.64`
+  /// <br> Expanded `64.64` <br> Large `69.12`
+  /// <br> ExtraLarge `73.12`
+  final double navBarHeight;
 }
 
 class AppDimension {
-  const AppDimension({required this.windowSize});
+  const AppDimension({
+    required this.windowSize,
+    required this.maxWidth,
+  });
 
   final WindowSize windowSize;
+
+  final double maxWidth;
 
   Dimension get dimens {
     return switch (windowSize) {
@@ -171,105 +176,105 @@ Dimension get _compact => const Dimension(
   borderRadius: 10,
   buttonMinWidth: 200,
   buttonHeight: 48,
-  appBarHeight: 56,
+  navBarHeight: 58,
 );
 
-// Multiplier => 1.25x
+// Multiplier => 1.08x
 Dimension get _medium => const Dimension(
-  tiny: 3,
-  tiny2: 5,
-  small: 10,
-  small2: 15,
-  small3: 20,
-  small4: 25,
-  small5: 30,
-  medium: 40,
-  medium2: 45,
-  medium3: 50,
-  medium4: 55,
-  medium5: 60,
-  large: 70,
-  large2: 75,
-  large3: 80,
-  large4: 85,
-  large5: 90,
-  borderRadius: 13,
-  buttonMinWidth: 250,
-  buttonHeight: 60,
-  appBarHeight: 70,
+  tiny: 2.16,
+  tiny2: 4.32,
+  small: 8.64,
+  small2: 12.96,
+  small3: 17.28,
+  small4: 21.6,
+  small5: 25.92,
+  medium: 34.56,
+  medium2: 38.88,
+  medium3: 43.2,
+  medium4: 47.52,
+  medium5: 51.84,
+  large: 60.48,
+  large2: 64.8,
+  large3: 69.12,
+  large4: 73.44,
+  large5: 77.76,
+  borderRadius: 10.8,
+  buttonMinWidth: 216.0,
+  buttonHeight: 51.84,
+  navBarHeight: 62.64,
 );
 
-// Multiplier => 1.5x
+// Multiplier => 1.16x
 Dimension get _expanded => const Dimension(
-  tiny: 3,
-  tiny2: 6,
-  small: 12,
-  small2: 18,
-  small3: 24,
-  small4: 30,
-  small5: 36,
-  medium: 48,
-  medium2: 54,
-  medium3: 60,
-  medium4: 66,
-  medium5: 72,
-  large: 84,
-  large2: 90,
-  large3: 96,
-  large4: 102,
-  large5: 108,
-  borderRadius: 15,
-  buttonMinWidth: 300,
-  buttonHeight: 72,
-  appBarHeight: 84,
+  tiny: 2.33,
+  tiny2: 4.66,
+  small: 9.28,
+  small2: 13.99,
+  small3: 18.66,
+  small4: 23.32,
+  small5: 27.98,
+  medium: 37.33,
+  medium2: 41.99,
+  medium3: 46.66,
+  medium4: 51.32,
+  medium5: 55.98,
+  large: 65.31,
+  large2: 69.66,
+  large3: 74.64,
+  large4: 79.62,
+  large5: 84.59,
+  borderRadius: 11.16,
+  buttonMinWidth: 223.2,
+  buttonHeight: 53.28,
+  navBarHeight: 64.64,
 );
 
-// Multiplier => 1.75x
+// Multiplier => 1.24x
 Dimension get _large => const Dimension(
-  tiny: 4,
-  tiny2: 7,
-  small: 14,
-  small2: 21,
-  small3: 28,
-  small4: 35,
-  small5: 42,
-  medium: 56,
-  medium2: 63,
-  medium3: 70,
-  medium4: 77,
-  medium5: 84,
-  large: 98,
-  large2: 105,
-  large3: 112,
-  large4: 119,
-  large5: 126,
-  borderRadius: 18,
-  buttonMinWidth: 350,
-  buttonHeight: 84,
-  appBarHeight: 98,
+  tiny: 2.52,
+  tiny2: 5.04,
+  small: 10.08,
+  small2: 15.12,
+  small3: 20.16,
+  small4: 25.2,
+  small5: 30.24,
+  medium: 40.32,
+  medium2: 45.12,
+  medium3: 50.4,
+  medium4: 55.44,
+  medium5: 60.48,
+  large: 70.56,
+  large2: 75.12,
+  large3: 80.64,
+  large4: 86.16,
+  large5: 91.68,
+  borderRadius: 12.0,
+  buttonMinWidth: 240.0,
+  buttonHeight: 57.6,
+  navBarHeight: 69.12,
 );
 
-// Multiplier => 2x
+// Multiplier => 1.32x
 Dimension get _extraLarge => const Dimension(
-  tiny: 4,
-  tiny2: 8,
-  small: 16,
-  small2: 24,
-  small3: 32,
-  small4: 40,
-  small5: 48,
-  medium: 64,
-  medium2: 72,
-  medium3: 80,
-  medium4: 88,
-  medium5: 96,
-  large: 112,
-  large2: 120,
-  large3: 128,
-  large4: 136,
-  large5: 144,
-  borderRadius: 20,
-  buttonMinWidth: 400,
-  buttonHeight: 96,
-  appBarHeight: 112,
+  tiny: 2.72,
+  tiny2: 5.44,
+  small: 10.88,
+  small2: 16.32,
+  small3: 21.76,
+  small4: 27.2,
+  small5: 32.64,
+  medium: 43.52,
+  medium2: 48.64,
+  medium3: 54.4,
+  medium4: 59.84,
+  medium5: 65.28,
+  large: 76.16,
+  large2: 81.28,
+  large3: 87.04,
+  large4: 92.8,
+  large5: 98.56,
+  borderRadius: 12.8,
+  buttonMinWidth: 256.0,
+  buttonHeight: 61.44,
+  navBarHeight: 73.12,
 );

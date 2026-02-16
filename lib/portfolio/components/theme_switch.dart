@@ -16,7 +16,9 @@ class ThemeSwitch extends StatelessWidget {
     final color = context.color;
     return IconButton(
       onPressed: () => onThemeChange(isDarkMode ? ThemeMode.light : ThemeMode.dark),
-      icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode_outlined),
+      icon: Icon(
+        isDarkMode ? Icons.light_mode : Icons.dark_mode_outlined,
+      ),
       style: IconButton.styleFrom(
         backgroundColor: color.inverseSurface.withValues(alpha: 0.1),
         shape: const CircleBorder(),

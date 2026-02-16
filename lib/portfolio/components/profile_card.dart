@@ -20,7 +20,7 @@ class ProfileCard extends StatelessWidget {
       color: context.color.offWhite.color,
       elevation: 0,
       child: Padding(
-        padding: EdgeInsets.all(context.dimens.small3),
+        padding: EdgeInsets.all(context.dimens.small2),
         child: Column(
           children: [
             ClipRRect(
@@ -28,24 +28,26 @@ class ProfileCard extends StatelessWidget {
               child: const Img.asset(
                 asset: 'assets/pp.png',
                 package: null,
-                height: 300,
+                height: 192,
               ),
             ),
-            SizedBox(height: context.dimens.small3),
+            SizedBox(height: context.dimens.small2),
             Text(
               profile.name,
+              textAlign: .center,
               style: context.textTheme.displaySmall!.copyWith(
                 color: context.color.offWhite.onColor,
               ),
             ),
-            SizedBox(height: context.dimens.small4),
+            SizedBox(height: context.dimens.small2),
             Text(
               profile.heroDescription,
-              style: context.textTheme.bodyLarge!.copyWith(
+              textAlign: .center,
+              style: context.textTheme.bodyMedium!.copyWith(
                 color: context.color.offWhite.onColor,
               ),
             ),
-            SizedBox(height: context.dimens.small4),
+            SizedBox(height: context.dimens.small2),
             Row(
               mainAxisAlignment: .center,
               children: [
@@ -54,7 +56,7 @@ class ProfileCard extends StatelessWidget {
                   icon: Img.asset(
                     asset: 'assets/github.svg.vec',
                     package: null,
-                    height: context.dimens.small5,
+                    height: context.dimens.small4,
                     color: context.color.onTertiaryFixedVariant,
                   ),
                 ),
@@ -64,7 +66,7 @@ class ProfileCard extends StatelessWidget {
                   icon: Img.asset(
                     asset: 'assets/linkedin.svg.vec',
                     package: null,
-                    height: context.dimens.small5,
+                    height: context.dimens.small4,
                     color: context.color.onTertiaryFixedVariant,
                   ),
                 ),

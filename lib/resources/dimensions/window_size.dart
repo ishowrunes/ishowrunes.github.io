@@ -5,18 +5,18 @@ enum WindowSize {
 
   /// Tablet in portrait
   /// Foldable in portrait (Unfolded)
-  medium(1.25),
+  medium(1.04),
 
   /// Phone in landscape
   /// Tablet in landscape
   /// Foldable in landscape
-  expanded(1.5),
+  expanded(1.08),
 
   /// Desktop
-  large(1.75),
+  large(1.12),
 
   /// Ultra-wide desktop
-  extraLarge(2);
+  extraLarge(1.16);
 
   const WindowSize(this.multiplier);
 

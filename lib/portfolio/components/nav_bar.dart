@@ -52,7 +52,7 @@ class NavBar extends StatelessWidget {
       ),
       child: NavigationBar(
         elevation: 0,
-        height: context.baseDimens.large + context.baseDimens.tiny,
+        height: context.baseDimens.navBarHeight,
         labelPadding: .zero,
         labelBehavior: .alwaysShow,
         backgroundColor: Colors.transparent,
