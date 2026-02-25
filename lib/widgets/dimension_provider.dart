@@ -27,4 +27,6 @@ extension DimensionExtension on BuildContext {
   Dimension get baseDimens => DimensionProvider.of(this).baseDimens;
 
   double get maxWidth => DimensionProvider.of(this).maxWidth;
+
+  WindowSize get windowSize => DimensionProvider.of(this).windowSize;
 }
