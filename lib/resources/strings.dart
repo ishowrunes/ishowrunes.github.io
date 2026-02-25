@@ -1,2 +1,2 @@
 
-const String s_appName = 'ishowrunes';
+const String s_appName = 'Ishwor Shrestha';
