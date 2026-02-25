@@ -7,14 +7,18 @@ environment:
   sdk: ^3.10.8
 
 dependencies:
+  animations: ^2.1.1
+  cloud_firestore: ^6.1.2
+  firebase_core: ^4.4.0
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.6.1
+  flutter_staggered_grid_view: ^0.7.0
   gen_annotation:
     git:
       url: https://github.com/Order-of-Runes/gen_annotation.git
       ref: 0.0.2
-  google_fonts: ^8.0.1
+  google_fonts: ^8.0.2
   img:
     git:
       url: https://github.com/TheMakersPrime/img.git
@@ -39,6 +43,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/github.svg.vec
-    - assets/linkedin.svg.vec
-    - assets/pp.png
+    - assets/
