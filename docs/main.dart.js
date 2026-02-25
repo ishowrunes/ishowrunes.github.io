@@ -85227,7 +85227,7 @@ break
 case 2:s=new A.a8(o.xz(B.hF),B.hF)
 break
 default:s=q}r=s.a
-return new A.qv(s.b,new A.A1(new A.OD(p,q),"ishowrunes",r,!1,q),q)},
+return new A.qv(s.b,new A.A1(new A.OD(p,q),"Ishwor Shrestha",r,!1,q),q)},
 $S:540}
 A.a25.prototype={
 arf(a,b,c,d,e){var s=null,r=c==null
