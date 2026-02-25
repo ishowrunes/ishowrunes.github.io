@@ -17,78 +17,101 @@ class ProjectDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isMobile = context.windowSize.order <= 1;
+
+    final closeButton = IconButton(
+      onPressed: () => Navigator.of(context).pop(),
+      icon: const Icon(
+        Symbols.close,
+        weight: 32767,
+        fontWeight: FontWeight.w900,
+      ),
+      style: IconButton.styleFrom(
+        backgroundColor: context.color.outlineVariant,
+        shape: const CircleBorder(),
+      ),
+    );
     final target = ProjectTarget(
       targets: project.targets,
       orientation: isMobile ? .horizontal : .vertical,
-      child: isMobile
-          ? null
-          : IconButton(
-              onPressed: () => Navigator.of(context).pop(),
-              icon: const Icon(
-                Symbols.close,
-                weight: 32767,
-                fontWeight: FontWeight.w900,
-              ),
-              style: IconButton.styleFrom(
-                backgroundColor: context.color.outlineVariant,
-                shape: const CircleBorder(),
-              ),
-            ),
+      child: isMobile ? null : closeButton,
     );
+
+    final details = ListView(
+      padding: .all(context.dimens.small3),
+      children: [
+        Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(context.dimens.borderRadius),
+            child: Img.asset(
+              asset: 'assets/${project.asset}',
+              package: null,
+            ),
+          ),
+        ),
+        SizedBox(height: context.dimens.small3),
+        Center(
+          child: Text(
+            project.name,
+            style: context.textTheme.headlineSmall,
+          ),
+        ),
+        SizedBox(height: context.dimens.small3),
+        if (isMobile)
+          Padding(
+            padding: .only(bottom: context.dimens.small3),
+            child: target,
+          ),
+        Text(
+          project.description,
+          style: context.textTheme.bodyLarge,
+        ),
+        SizedBox(height: context.dimens.small3),
+        Text(
+          project.detail,
+          style: context.textTheme.bodyLarge,
+        ),
+        SizedBox(height: context.dimens.small3),
+        Text(
+          'What I Contributed',
+          style: context.textTheme.titleLarge,
+        ),
+        SizedBox(height: context.dimens.small2),
+        for (final contribution in project.contributions) ...[
+          Padding(
+            padding: .only(top: context.dimens.small),
+            child: Text(
+              '-  $contribution',
+              style: context.textTheme.bodyLarge,
+            ),
+          ),
+        ],
+      ],
+    );
+
     final child = DecoratedBox(
       decoration: BoxDecoration(
         color: context.color.surfaceContainerHigh,
         borderRadius: BorderRadius.vertical(top: Radius.circular(context.dimens.borderRadius)),
       ),
-      child: Padding(
-        padding: .all(context.dimens.small3),
-        child: ListView(
-          children: [
-            Center(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(context.dimens.borderRadius),
-                child: Img.asset(
-                  asset: 'assets/${project.asset}',
-                  package: null,
+      child: isMobile
+          ? Column(
+              children: [
+                Padding(
+                  padding: .fromLTRB(
+                    context.dimens.small,
+                    context.dimens.small,
+                    context.dimens.small,
+                    context.dimens.small,
+                  ),
+                  child: Align(
+                    alignment: .topRight,
+                    child: closeButton,
+                  ),
                 ),
-              ),
-            ),
-            SizedBox(height: context.dimens.small3),
-            Center(
-              child: Text(
-                project.name,
-                style: context.textTheme.headlineSmall,
-              ),
-            ),
-            SizedBox(height: context.dimens.small3),
-            Text(
-              project.description,
-              style: context.textTheme.bodyLarge,
-            ),
-            SizedBox(height: context.dimens.small3),
-            Text(
-              project.detail,
-              style: context.textTheme.bodyLarge,
-            ),
-            SizedBox(height: context.dimens.small3),
-            Text(
-              'What I Contributed',
-              style: context.textTheme.titleLarge,
-            ),
-            SizedBox(height: context.dimens.small2),
-            for(final contribution in project.contributions)...[
-              Padding(
-                padding: .only(top: context.dimens.small),
-                child: Text(
-                  '-  $contribution',
-                  style: context.textTheme.bodyLarge,
-                ),
-              )
-            ],
-            if (isMobile) target,
-          ],
-        ),
-      ),
+                Expanded(child: details),
+              ],
+            )
+          : details,
     );
 
     if (isMobile) return child;
