@@ -238,14 +238,11 @@ class _MobileAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: context.baseDimens.navBarHeight,
-      child: Align(
-        alignment: .topRight,
-        child: Padding(
-          padding: .all(context.dimens.small3),
-          child: themeSwitch,
-        ),
+    return Align(
+      alignment: .topRight,
+      child: Padding(
+        padding: .all(context.dimens.small),
+        child: themeSwitch,
       ),
     );
   }
