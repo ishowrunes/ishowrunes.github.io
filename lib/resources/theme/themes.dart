@@ -204,7 +204,19 @@ class RuneTheme {
         letterSpacing: -0.5,
         height: 1.2,
       ),
-
+      // Headline — for project titles / subsection headers
+      headlineLarge: GoogleFonts.poppins(
+        fontSize: 32 * multiplier,
+        fontWeight: FontWeight.w700,
+      ),
+      headlineMedium: GoogleFonts.poppins(
+        fontSize: 28 * multiplier,
+        fontWeight: FontWeight.w600,
+      ),
+      headlineSmall: GoogleFonts.poppins(
+        fontSize: 24 * multiplier,
+        fontWeight: FontWeight.w600,
+      ),
       // Body / General Text
       bodyLarge: GoogleFonts.manrope(
         fontSize: 16 * multiplier,
@@ -221,7 +233,6 @@ class RuneTheme {
         fontWeight: FontWeight.w400,
         height: 1.5,
       ),
-
       // Optional: Buttons / Labels
       titleLarge: GoogleFonts.poppins(
         fontSize: 20 * multiplier,
@@ -236,6 +247,19 @@ class RuneTheme {
         fontSize: 14 * multiplier,
         fontWeight: FontWeight.w500,
       ),
+      // Labels — buttons, status, tags
+      labelLarge: GoogleFonts.manrope(
+        fontSize: 14 * multiplier,
+        fontWeight: FontWeight.w500,
+      ),
+      labelMedium: GoogleFonts.manrope(
+        fontSize: 12 * multiplier,
+        fontWeight: FontWeight.w500,
+      ),
+      labelSmall: GoogleFonts.manrope(
+        fontSize: 10 * multiplier,
+        fontWeight: FontWeight.w500,
+      ),
     );
   }
 
@@ -247,6 +271,16 @@ class RuneTheme {
       textTheme: textTheme.apply(bodyColor: scheme.onSurface, displayColor: scheme.onSurface),
       scaffoldBackgroundColor: scheme.surface,
       canvasColor: scheme.surface,
+      inputDecorationTheme: InputDecorationTheme(
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: scheme.tertiary),
+        ),
+        floatingLabelStyle: TextStyle(color: scheme.tertiary),
+      ),
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: scheme.tertiary,
+        selectionColor: scheme.tertiary.withValues(alpha: 0.2),
+      ),
     );
   }
 }

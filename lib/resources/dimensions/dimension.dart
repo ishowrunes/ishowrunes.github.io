@@ -23,6 +23,7 @@ class Dimension {
     required this.buttonMinWidth,
     required this.buttonHeight,
     required this.navBarHeight,
+    required this.maxWidth,
   });
 
   /// Compact `2.0` <br> Medium `2.16`
@@ -129,6 +130,11 @@ class Dimension {
   /// <br> Expanded `64.64` <br> Large `69.12`
   /// <br> ExtraLarge `73.12`
   final double navBarHeight;
+
+  /// Compact `1280.0` <br> Medium `1280.00`
+  /// <br> Expanded `1280.00` <br> Large `1280.00`
+  /// <br> ExtraLarge `1280.00`
+  final double maxWidth;
 }
 
 class AppDimension {
@@ -177,6 +183,7 @@ Dimension get _compact => const Dimension(
   buttonMinWidth: 200,
   buttonHeight: 48,
   navBarHeight: 58,
+  maxWidth: 1280,
 );
 
 // Multiplier => 1.08x
@@ -202,6 +209,7 @@ Dimension get _medium => const Dimension(
   buttonMinWidth: 216.0,
   buttonHeight: 51.84,
   navBarHeight: 62.64,
+  maxWidth: 1280,
 );
 
 // Multiplier => 1.16x
@@ -227,6 +235,7 @@ Dimension get _expanded => const Dimension(
   buttonMinWidth: 223.2,
   buttonHeight: 53.28,
   navBarHeight: 64.64,
+  maxWidth: 1280,
 );
 
 // Multiplier => 1.24x
@@ -252,6 +261,7 @@ Dimension get _large => const Dimension(
   buttonMinWidth: 240.0,
   buttonHeight: 57.6,
   navBarHeight: 69.12,
+  maxWidth: 1280,
 );
 
 // Multiplier => 1.32x
@@ -277,4 +287,5 @@ Dimension get _extraLarge => const Dimension(
   buttonMinWidth: 256.0,
   buttonHeight: 61.44,
   navBarHeight: 73.12,
+  maxWidth: 1280,
 );
