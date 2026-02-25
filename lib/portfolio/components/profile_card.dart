@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:img/img.dart';
 import 'package:ishowrunes/portfolio/models/profile_model.dart';
+import 'package:ishowrunes/util/launcher_util.dart';
 import 'package:ishowrunes/widgets/color_scheme_provider.dart';
 import 'package:ishowrunes/widgets/dimension_provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({
@@ -52,7 +52,7 @@ class ProfileCard extends StatelessWidget {
               mainAxisAlignment: .center,
               children: [
                 IconButton(
-                  onPressed: () => _openUrl(profile.github),
+                  onPressed: () => openUrl(profile.github),
                   icon: Img.asset(
                     asset: 'assets/github.svg.vec',
                     package: null,
@@ -62,7 +62,7 @@ class ProfileCard extends StatelessWidget {
                 ),
                 SizedBox(width: context.dimens.small4),
                 IconButton(
-                  onPressed: () => _openUrl(profile.linkedin),
+                  onPressed: () => openUrl(profile.linkedin),
                   icon: Img.asset(
                     asset: 'assets/linkedin.svg.vec',
                     package: null,
@@ -76,9 +76,5 @@ class ProfileCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void _openUrl(String url) {
-    launchUrl(Uri.parse(url));
   }
 }

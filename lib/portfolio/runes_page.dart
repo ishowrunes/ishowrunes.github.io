@@ -4,6 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:ishowrunes/portfolio/components/nav_bar.dart';
 import 'package:ishowrunes/portfolio/components/profile_card.dart';
 import 'package:ishowrunes/portfolio/components/theme_switch.dart';
+import 'package:ishowrunes/portfolio/fragments/cta_fragment.dart';
+import 'package:ishowrunes/portfolio/fragments/how_i_work_fragment.dart';
+import 'package:ishowrunes/portfolio/fragments/intro_fragment.dart';
+import 'package:ishowrunes/portfolio/fragments/projects/project_fragment.dart';
+import 'package:ishowrunes/portfolio/fragments/skills_fragment.dart';
+import 'package:ishowrunes/portfolio/fragments/what_help_with_fragment.dart';
 import 'package:ishowrunes/portfolio/runes_view_model.dart';
 import 'package:ishowrunes/resources/dimensions/dimension.dart';
 import 'package:ishowrunes/resources/dimensions/window_size.dart';
@@ -13,67 +19,99 @@ import 'package:ishowrunes/widgets/dimension_provider.dart';
 import 'package:konsumer_core/konsumer_core.dart';
 
 class RunesPage extends StatelessWidget {
-  const RunesPage({super.key, required this.size});
+  const RunesPage({
+    super.key,
+    required this.size,
+  });
 
   final WindowSize size;
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-    return DimensionProvider(
-      dimension: AppDimension(
-        windowSize: size,
-        maxWidth: width,
-      ),
-      child: Scaffold(
-        backgroundColor: context.color.surface,
-        body: KonsumerCore(
-          provider: runesVMProvider,
-          onReady: (vm) => vm.init(),
-          builder: (context, pod) {
-            final state = pod.state;
-            final themeVM = pod.ref.read(themeSwitcherVMProvider.notifier);
+    return SelectionArea(
+      child: DimensionProvider(
+        dimension: AppDimension(
+          windowSize: size,
+          maxWidth: width,
+        ),
+        child: Scaffold(
+          backgroundColor: context.color.surface,
+          body: KonsumerCore(
+            provider: runesVMProvider,
+            onReady: (vm) => vm.init(),
+            builder: (context, pod) {
+              final state = pod.state;
+              final themeVM = pod.ref.read(themeSwitcherVMProvider.notifier);
 
-            return _RunesFragment(
-              state: state,
-              themeVM: themeVM,
-            );
-          },
+              return _RunesFragment(
+                state: state,
+                themeVM: themeVM,
+                runeVM: pod.vm,
+              );
+            },
+          ),
         ),
       ),
     );
   }
 }
 
-class _RunesFragment extends StatelessWidget {
+class _RunesFragment extends StatefulWidget {
   const _RunesFragment({
     required this.themeVM,
     required this.state,
+    required this.runeVM,
   });
 
   final ThemeSwitcherViewModel themeVM;
   final RunesState state;
+  final RunesViewModel runeVM;
+
+  @override
+  State<_RunesFragment> createState() => _RunesFragmentState();
+}
+
+class _RunesFragmentState extends State<_RunesFragment> {
+  final controller = ScrollController();
+  late final Map<NavDestination, GlobalKey> keyStore;
+
+  @override
+  void initState() {
+    super.initState();
+    keyStore = {
+      .about: GlobalKey(),
+      .expertise: GlobalKey(),
+      .projects: GlobalKey(),
+      .contact: GlobalKey(),
+    };
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final isBigScreen = switch (resolveSize(context.maxWidth)) {
-      .compact || .medium => false,
-      .expanded || .large || .extraLarge => true,
-    };
+    final isBigScreen = context.windowSize.order > 1;
 
     final dSmall = context.dimens.small;
     final navBarHeight = isBigScreen ? dSmall + context.baseDimens.navBarHeight + dSmall : context.baseDimens.navBarHeight;
 
     final navBar = NavBar(
-      onTap: (destination) {},
+      onTap: (destination) {
+        _scrollTo(keyStore[destination]);
+      },
     );
 
     final themeSwitch = ThemeSwitch(
-      onThemeChange: themeVM.updateMode,
+      onThemeChange: widget.themeVM.updateMode,
     );
 
     final profile = ProfileCard(
-      profile: state.profile!,
+      profile: widget.state.profile!,
     );
 
     final basePadding = context.dimens.small3;
@@ -82,11 +120,16 @@ class _RunesFragment extends StatelessWidget {
 
     final sections = _Sections(
       profile: isBigScreen ? null : profile,
+      state: widget.state,
+      keyStore: keyStore,
+      vm: widget.runeVM,
     );
 
-    final padding = ((context.maxWidth - 1280).clamp(basePadding * 2, 1280)) / 2;
+    final maxWidth = context.dimens.maxWidth;
+    final padding = ((context.maxWidth - maxWidth).clamp(basePadding * 2, maxWidth)) / 2;
 
     final body = CustomScrollView(
+      controller: controller,
       slivers: [
         SliverPersistentHeader(
           floating: true,
@@ -122,7 +165,7 @@ class _RunesFragment extends StatelessWidget {
         children: [
           body,
           Positioned(
-            top: navBarHeight,
+            top: navBarHeight + context.dimens.small3,
             left: padding,
             child: SizedBox(
               width: profileCardWidth,
@@ -138,6 +181,25 @@ class _RunesFragment extends StatelessWidget {
         Expanded(child: body),
         navBar,
       ],
+    );
+  }
+
+  void _scrollTo(GlobalKey? key) {
+    const duration = Duration(milliseconds: 300);
+    const curve = Curves.easeInOut;
+
+    if (key == null) {
+      controller.animateTo(
+        0,
+        duration: duration,
+        curve: curve,
+      );
+    }
+
+    Scrollable.ensureVisible(
+      key!.currentContext!,
+      duration: duration,
+      curve: curve,
     );
   }
 }
@@ -226,119 +288,36 @@ class _WebAppbar extends StatelessWidget {
 class _Sections extends StatelessWidget {
   const _Sections({
     required this.profile,
+    required this.state,
+    required this.keyStore,
+    required this.vm,
   });
 
+  final Map<NavDestination, GlobalKey> keyStore;
   final ProfileCard? profile;
+  final RunesState state;
+  final RunesViewModel vm;
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Colors.red,
+    if (!state.stateReady) return const SizedBox.shrink();
+    return Padding(
+      padding: EdgeInsets.all(context.dimens.small3),
       child: Column(
         crossAxisAlignment: .start,
+        spacing: context.windowSize.order > 1 ? context.dimens.large : context.dimens.small5,
         children: [
           if (profile != null) profile!,
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
-          Text('xyz'),
+          IntroFragment(intro: state.intro!),
+          HowIWorkFragment(key: keyStore[NavDestination.about], howWork: state.howWork!),
+          WhatHelpWithFragment(expertise: state.expertise!),
+          SkillsFragment(key: keyStore[NavDestination.expertise], skills: state.skills!),
+          ProjectFragment(key: keyStore[NavDestination.projects], projects: state.projects!),
+          CtaFragment(
+            key: keyStore[NavDestination.contact],
+            cta: state.cta!,
+            vm: vm,
+          ),
         ],
       ),
     );
